@@ -133,7 +133,7 @@ function rockPaperScissor(){
                                                                             //old listeners
                 rockPaperScissor(); //Reinitalise the game
             }
-        },2900)
+        },2900) // Adjust that later
 
         }, 3000)
     })
