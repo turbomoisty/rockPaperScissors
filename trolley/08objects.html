@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08 Objects</title>
+</head>
+<body>
+    
+
+    <script>
+        //objecy product
+        const product = {
+        // property : value
+            name: 'cosco',
+            price: 1020,
+            id: 1321,
+            deliverytime: '12:32pm',
+        //Bracket notation allows properties to be used that does not work with dot notation
+            ['chinois-china'] : 1232,
+            chocolate: {
+                'dark_choc': '80% coco',
+                'milk_choc': '60% coco',
+                'white_choc': {
+                    chocolate : 'It\'s not even chocholate'
+                }
+            },
+
+            java_test: function alert_function(){
+                let x = (a,b,c) => a * b + c;
+                alert(x(43,12,2))
+            }
+        };
+
+        console.log(product['name'], product['price'])
+        console.log(product.price, product['chinois-china']) // using dot notation and bracket notation
+        console.log(product.chocolate['dark_choc'])
+        console.log(product.chocolate['white_choc']['chocolate']) // Accessing an object within a object. A nested object
+        console.log(product.java_test()) // Add brackets to call the function that is assosiated with the value
+
+        const jsoned = JSON.stringify(product); //Turns the product object into a JSON format. All properties and strings must be "double quoted"
+                                                // Does not allow functions to be a value
+        console.log(jsoned)
+        const unjasoned = JSON.parse(jsoned); //parses JSON data to turn into a JS object
+        console.log(unjasoned)
+    </script>
+</body>
+
+</html>

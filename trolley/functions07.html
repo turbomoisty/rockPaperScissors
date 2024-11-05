@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Test</title>
+
+    <style>
+
+        html{
+            background-color: darkseagreen;
+            display: flex;
+            height: 100%;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        html button{
+            width: 300px;
+            height: 100px;
+            border-radius: 12px;
+
+        }
+
+        .peepee{ /* CSS for JS script when .peepee exists*/ 
+            background-color: blueviolet;
+            text-align: center;
+            border-radius: 4px;
+            border: 2px solid chartreuse;
+        }
+
+    </style>
+</head>
+<body>
+    <button>Button</button>
+    <button onclick="changeButton()">Button two</button>
+    
+    
+
+<script>
+    const onlyButton = document.getElementsByTagName('button')[0];
+    let clicked_num = 0;
+    onlyButton.addEventListener('click', function(){
+        clicked_num++;
+        onlyButton.textContent = `I've been clicked ${clicked_num} times`;
+    })
+    const onlyButton2 = document.getElementsByTagName('button')[1];
+
+    function changeButton(){
+        let buttonToText = '<h2 class="peepee"> I\'ve been replaced </h2>' // I can write a identifier within a variable and style it in CSS
+        document.getElementsByTagName('button')[1].outerHTML = buttonToText;
+    }
+</script>
+</body>
+</html>

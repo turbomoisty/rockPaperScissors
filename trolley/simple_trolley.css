@@ -1,0 +1,61 @@
+html{
+    background-color:rgb(212, 207, 217);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 100%;
+    gap:2%;
+}
+
+.button-rows{
+    display: flex;
+    gap: 2%;
+}
+
+body div button{
+    background-color: burlywood;
+    width: 120px;
+    border-radius: 5%;
+    box-shadow: 2px 2px 2px black;
+    transition: background-color 0.4s, transform 0.2s ease-in-out;
+
+}
+
+body div button:hover{
+    background-color: rgb(223, 213, 200);
+    transform: scale(1.05);
+}
+
+body div button:active{
+    transform: scale(0.92);
+}
+
+.cart-boxes{
+    display: flex;
+    flex-direction: row;
+    margin-top: 3%;
+    gap: 2%;
+}
+
+.output-box{
+    width: 200px;
+    height:50px;
+    text-align: center;
+        background-color: rgb(231, 239, 224);
+}
+
+.cart-quantity{
+    height: 50px;
+    width: 50px;
+    background-color: rgb(231, 239, 224);
+    text-align: center;
+}
+
+

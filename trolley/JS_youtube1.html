@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        html{
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            align-items: center;
+            border: 1px solid black;
+
+
+        }
+
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            height: 100vh; 
+            justify-content: center;
+            }
+
+        .bu, .bu1{
+            padding: 12px 24px;
+            background-color: rgb(18, 47, 188);
+            color: rgb(243, 204, 154);
+            font-weight: bold;
+            border-radius: 10%;
+            box-shadow: 5px 5px 4px black;
+            transition: background-color 0.1s ease-out;
+            margin-bottom: 40px;
+        }
+
+        .bu:active{
+            background-color: rgb(15, 28, 97);
+        }
+        
+    </style>
+</head>
+<body>
+    <h1 class="head">Heading</h1>
+    <button class="bu">Click me!</button>
+    <button class="bu1">Click me too!</button>
+    <p class="p_test"></p>
+
+    <button class="bu" >button</button>
+
+
+    <script src="lesson1.js">
+    </script>
+    
+</body>
+
+</html>
+
