@@ -1,6 +1,16 @@
 // A random whole number between 1 and 10 (inclusive):
 
 // let x = Math.floor((Math.random() * 10) + 1);
+const rest_counter = document.getElementsByClassName('reset_button')[0];
+
+
+
+rest_counter.addEventListener('click', () =>{
+    localStorage.removeItem('game_score') //Resets the data back to it's default value
+    alert('score has been reset!')
+})
+
+
 function rockPaperScissor(){
 
     const rps_list_cpu = [
@@ -56,10 +66,11 @@ function rockPaperScissor(){
     ---.__(___)`
     ]
 
-    const game_button = document.getElementsByTagName('button');
+    const game_button = document.getElementsByClassName('game_button');
     const player_box = document.getElementsByClassName('player')[0];
     const cpu_box = document.getElementsByClassName('CPU')[0];
     const text_info = document.getElementsByClassName('screen_bottom_text')[0];
+
 
     function playerOption(){
         let buttonPressed = new Promise((ifPlayerChosen) => { //(promise - resolve)
@@ -72,7 +83,6 @@ function rockPaperScissor(){
                     } else if (i === 1){
                         player_box.textContent = rps_list_player[1];
                         player_choice = 1;
-        
                     } else if (i === 2){
                         player_box.textContent = rps_list_player[2];
                         player_choice = 2;
@@ -102,6 +112,8 @@ function rockPaperScissor(){
         return buttonPressed;
     }
 
+
+
     playerOption().then((player_choice) => {
         setTimeout(function(){
             let cpu_choice = Math.floor(Math.random() * 3)
@@ -113,14 +125,18 @@ function rockPaperScissor(){
             console.log(cpu_choice);
    
         setTimeout(function(){
-            localStorage.removeItem('game_score') //Resets the data back to it's default value
 
-            if (game_score === null){
-                
-            }
 
             // I can now retrieve the game_score as the object has been converted into a string
-            const game_score = JSON.parse(localStorage.getItem('game_score'));
+            let game_score = JSON.parse(localStorage.getItem('game_score'));
+
+            if (game_score === null){ // Pretty self explanatory. If object does not exist, create obj
+                game_score = {
+                    win_count : 0,
+                    tie_count : 0,
+                    lose_count : 0
+                }
+            }
    
             if( cpu_choice === player_choice){
                 text_info.textContent = 'Tie!';
@@ -138,7 +154,8 @@ function rockPaperScissor(){
             // Keep in mind that setItem only takes in strings as parameters. I had to convert the game_score object into a string using the 
             // stringify method.
             localStorage.setItem('game_score', JSON.stringify(game_score));
-            console.log(game_score)
+
+            alert(`Your wins: ${game_score.win_count} Your losses: ${game_score.lose_count} Your ties ${game_score.tie_count}`)
 
         },2000)
 
