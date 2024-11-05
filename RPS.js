@@ -80,7 +80,7 @@ function rockPaperScissor(){
         
                     text_info.textContent="Opponent is Thinking";
         
-                    setTimeout(function(){
+                    setTimeout(function(){ // good for ensuring the functions are only called at certain times.
                         let dots = ""
                         let dot_count = 0;
         
@@ -113,14 +113,32 @@ function rockPaperScissor(){
             console.log(cpu_choice);
    
         setTimeout(function(){
+            localStorage.removeItem('game_score') //Resets the data back to it's default value
+
+            if (game_score === null){
+                
+            }
+
+            // I can now retrieve the game_score as the object has been converted into a string
+            const game_score = JSON.parse(localStorage.getItem('game_score'));
+   
             if( cpu_choice === player_choice){
                 text_info.textContent = 'Tie!';
+                game_score.tie_count ++;
             }
             else if ((player_choice - cpu_choice + 3) % 3 === 1) {
                 text_info.textContent = "Player wins!";
+                game_score.win_count ++;
             } else {
                 text_info.textContent =  "Computer wins!";
+                game_score.lose_count ++;
             }
+
+            // stores the parameters in the setItem method into the local storage, so that the values do not get reset when refreshed.
+            // Keep in mind that setItem only takes in strings as parameters. I had to convert the game_score object into a string using the 
+            // stringify method.
+            localStorage.setItem('game_score', JSON.stringify(game_score));
+            console.log(game_score)
 
         },2000)
 
